@@ -1,0 +1,80 @@
+package pack1;
+
+public class Exo {
+
+	// exercice diapo 31
+
+	static void exo1() {
+		int i = 7;
+		int j = 3;
+		int divEntiere = i / j;
+		int reste = i % j;
+		double divClassique = (double) i / j; // transformer une des variable en
+												// double
+		// pour avoir la division classique
+		double somme = divEntiere + reste + divClassique;
+
+		System.out.println("Division Entiere = " + divEntiere);
+		System.out.println("Reste = " + reste);
+		System.out.println("Division Classique = " + divClassique);
+		System.out.println("La somme des 3 = " + somme);
+
+		System.out.println("La somme : " + (i + j)); // mettre parentheses pour
+														// qu'il fasse
+														// l'addition d'abord
+
+	}
+
+	// exercice diapo 35
+	static void exo2(int monParam) { // on cree la methode exo2 avec un entier
+										// comme parametre
+
+		monParam = monParam + 5; // on ajoute 5 au parametre
+		System.out.println("Parametre : " + monParam); // on affiche les
+														// differents parametres
+														// qu'on appele dans
+														// main
+
+	}
+
+	// exercice diapo 37
+	static void sub(int a, int b) {
+		int soustrac = a - b;
+		System.out.println("La soustraction : " + soustrac);
+		System.out.println("La soustraction : " + (a - b));// autre facon
+	}
+
+	// exo diapo 39
+
+	static int multiplyAndAdd(int a, int b, int c) {
+		return a * (b + c);
+
+	}
+
+	// exo diapo 47
+	static int max(int a, int b, int c) {
+		if (a > b && a > c) {
+			System.out.println("Le plus grand est : " + a);
+			return a;
+
+		} else if (a < b && b > c) {
+			System.out.println("Le plus grand est : " + b);
+			return b;
+		} else {
+			System.out.println("Le plus grand est : " + c);
+			return c;
+		}
+	}
+
+	// exo dipao 51
+
+	public static void exoFor(int max) {
+		for (int i = 1; i <= max; i++) {
+
+			if (i % 47 == 0) {
+				System.out.println(i + "");
+			}
+		}
+	}
+
+}

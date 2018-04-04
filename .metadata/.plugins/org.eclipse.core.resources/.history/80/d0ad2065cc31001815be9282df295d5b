@@ -1,0 +1,577 @@
+package Ui1;
+//
+
+//import java.awt.Color;
+//import java.awt.EventQueue;
+//import java.awt.Font;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//
+//import javax.swing.JButton;
+//import javax.swing.JCheckBox;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
+//import javax.swing.JTextField;
+//
+//import pack1.PartieBean;
+//
+//public class Ihm {
+//
+//	private JFrame frame;
+//	private JTextField textField_De1;
+//	private JTextField textField_De2;
+//	private JTextField txtDe_1;
+//	private JTextField txtDe_2;
+//	private JTextField txtJoueur_1;
+//	private JTextField txtJoueur_2;
+//	private JTextField textField_ScoreJ1;
+//	private JTextField textField_ScoreJ2;
+//	private JLabel lblLabelNbTour;
+//	private JButton btnNouvellePartie;
+//	private JButton btnLancerJ1;
+//	private JButton btnLancerJ2;
+//
+//	JCheckBox chckbxTricheurJ1;
+//	JCheckBox chckbxTricheurJ2;
+//
+//	private PartieBean partie;
+//	private JLabel lblLabelGagnant;
+//	// private Controler controler;
+//
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			@Override
+//			public void run() {
+//				try {
+//					Ihm window = new Ihm();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+//
+//	/**
+//	 * Create the application.
+//	 */
+//	public Ihm() {
+//		partie = new PartieBean("bob", "john"); // a remettre quand on a pas
+//		// le controler
+//
+//		initialize();
+//		// controler = new Controler(this);
+//
+//		refreshScreen();
+//
+//	}
+//
+//	public void refreshScreen() {
+//
+//		// Joueur 1
+//		txtJoueur_1.setText(partie.getJ1().getPrenom());
+//		textField_ScoreJ1.setText("" + partie.getJ1().getScorePartie());
+//		chckbxTricheurJ1.setSelected(partie.getJ1().isTricheur());
+//
+//		// Joueur 2
+//		txtJoueur_2.setText(partie.getJ2().getPrenom());
+//		textField_ScoreJ2.setText("" + partie.getJ2().getScorePartie());
+//		chckbxTricheurJ2.setSelected(partie.getJ2().isTricheur());
+//
+//		// Les dés
+//		if (partie.getJoueurActif() != null) {
+//			textField_De1.setText("" + partie.getJoueurActif().getGobelet().getD1().getValue());
+//			textField_De2.setText("" + partie.getJoueurActif().getGobelet().getD2().getValue());
+//		}
+//		// Nombre de tours
+//		lblLabelNbTour.setText("Tour : " + partie.getTourEnCours());
+//		if (partie.isTermine()) {
+//
+//			if (partie.getJ1().getScorePartie() > partie.getJ2().getScorePartie()) {
+//				lblLabelGagnant.setText("" + partie.getJ1().getPrenom() + " a gagné");
+//			} else if (partie.getJ1().getScorePartie() < partie.getJ2().getScorePartie()) {
+//				lblLabelGagnant.setText("" + partie.getJ2().getPrenom() + " a gagné");
+//			} else if (partie.getJ1().getScorePartie() == partie.getJ2().getScorePartie()) {
+//				lblLabelGagnant.setText("  Egalité");
+//			}
+//			lblLabelGagnant.setVisible(true);
+//			btnLancerJ2.setVisible(false);
+//			btnLancerJ1.setVisible(false);
+//			btnNouvellePartie.setVisible(true);
+//		} else {
+//			btnNouvellePartie.setVisible(false);
+//		}
+//		// La visibilité des boutons en fonction du joueur actif
+//		if (partie.getJoueurActif() == partie.getJ1()) {
+//			btnLancerJ1.setVisible(true);
+//			btnLancerJ2.setVisible(false);
+//
+//		} else {
+//			btnLancerJ1.setVisible(false);
+//			btnLancerJ2.setVisible(true);
+//		}
+//
+//	}
+//
+//	public void restart() {
+//
+//		// Joueur 1
+//		txtJoueur_1.setText("Joueur 1");
+//		textField_ScoreJ1.setText("");
+//
+//		// Joueur 2
+//		txtJoueur_2.setText("Joueur 2");
+//		textField_ScoreJ2.setText("");
+//
+//		// Les dés
+//		textField_De1.setText("");
+//		textField_De2.setText("");
+//
+//		// Nombre de tours
+//		lblLabelNbTour.setText("Tour : ");
+//		btnLancerJ1.setVisible(true);
+//
+//	}
+//
+//	/**
+//	 * Initialize the contents of the frame.
+//	 */
+//	private void initialize() {
+//		frame = new JFrame();
+//		frame.setBounds(100, 100, 450, 300);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.getContentPane().setLayout(null);
+//
+//		textField_De1 = new JTextField();
+//		textField_De1.setBounds(142, 97, 49, 51);
+//		frame.getContentPane().add(textField_De1);
+//		textField_De1.setColumns(10);
+//
+//		textField_De2 = new JTextField();
+//		textField_De2.setColumns(10);
+//		textField_De2.setBounds(220, 97, 49, 51);
+//		frame.getContentPane().add(textField_De2);
+//
+//		txtDe_1 = new JTextField();
+//		txtDe_1.setText("   D\u00E9 1");
+//		txtDe_1.setBounds(142, 159, 46, 20);
+//		frame.getContentPane().add(txtDe_1);
+//		txtDe_1.setColumns(10);
+//
+//		txtDe_2 = new JTextField();
+//		txtDe_2.setText("   D\u00E9 2");
+//		txtDe_2.setBounds(220, 159, 49, 20);
+//		frame.getContentPane().add(txtDe_2);
+//		txtDe_2.setColumns(10);
+//
+//		btnNouvellePartie = new JButton("Nouvelle Partie");
+//		btnNouvellePartie.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				lblLabelGagnant.setVisible(false);
+//				partie = new PartieBean("bob", "john");
+//				// controler.restart();
+//				restart();
+//				refreshScreen();
+//
+//			}
+//		});
+//		btnNouvellePartie.setFont(new Font("Tahoma", Font.BOLD, 11));
+//		btnNouvellePartie.setBounds(142, 228, 126, 23);
+//		frame.getContentPane().add(btnNouvellePartie);
+//
+//		txtJoueur_1 = new JTextField();
+//		txtJoueur_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+//		txtJoueur_1.setText("  Joueur 1");
+//		txtJoueur_1.setBounds(28, 58, 71, 20);
+//		frame.getContentPane().add(txtJoueur_1);
+//		txtJoueur_1.setColumns(10);
+//
+//		txtJoueur_2 = new JTextField();
+//		txtJoueur_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+//		txtJoueur_2.setText("  Joueur 2");
+//		txtJoueur_2.setColumns(10);
+//		txtJoueur_2.setBounds(307, 58, 71, 20);
+//		frame.getContentPane().add(txtJoueur_2);
+//
+//		btnLancerJ1 = new JButton("Lancer");
+//		btnLancerJ1.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//
+//				partie.getJ1().lancer();
+//
+//				if (partie.getJ1().getGobelet().getScore() >= partie.SCORE_A_ATTENDRE) {
+//					partie.getJ1().ajouterPt();
+//				}
+//
+//				partie.setJoueurActif(partie.getJ2());
+//
+//				// btnLancerJ1.setEnabled(false);
+//				refreshScreen();
+//				// btnLancerJ2.setEnabled(true);
+//
+//			}
+//			// controler.lancer();
+//
+//		});
+//		btnLancerJ1.setBounds(18, 141, 89, 23);
+//		frame.getContentPane().add(btnLancerJ1);
+//		btnLancerJ2 = new JButton("Lancer");
+//		btnLancerJ2.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// controler.lancer();
+//				partie.setJoueurActif(partie.getJ2());
+//				partie.getJ2().lancer();
+//				if (partie.getJ2().getGobelet().getScore() >= partie.SCORE_A_ATTENDRE) {
+//					partie.getJ2().ajouterPt();
+//
+//				}
+//				// buttonLancerJ2.setEnabled(false);
+//				// partie.ajouterTour();
+//				// refreshScreen();
+//				// if (partie.getTourEnCours() == 10) {
+//				// btnLancerJ1.setEnabled(false);
+//				// lblLabelGagnant.setVisible(true);
+//				// } else {
+//				// btnLancerJ1.setEnabled(true);
+//				//
+//				// }
+//			}
+//		});
+//		btnLancerJ2.setBounds(297, 141, 89, 23);
+//		frame.getContentPane().add(btnLancerJ2);
+//
+//		lblLabelNbTour = new JLabel("Tour :");
+//		lblLabelNbTour.setFont(new Font("Tahoma", Font.BOLD, 14));
+//		lblLabelNbTour.setBounds(161, 40, 71, 14);
+//		frame.getContentPane().add(lblLabelNbTour);
+//
+//		JLabel lblScore = new JLabel("Score :");
+//		lblScore.setBounds(14, 94, 46, 14);
+//		frame.getContentPane().add(lblScore);
+//
+//		JLabel lblScore_1 = new JLabel("Score :");
+//		lblScore_1.setBounds(294, 94, 46, 14);
+//		frame.getContentPane().add(lblScore_1);
+//
+//		textField_ScoreJ1 = new JTextField();
+//		textField_ScoreJ1.setBounds(56, 89, 36, 20);
+//		frame.getContentPane().add(textField_ScoreJ1);
+//		textField_ScoreJ1.setColumns(10);
+//
+//		textField_ScoreJ2 = new JTextField();
+//		textField_ScoreJ2.setColumns(10);
+//		textField_ScoreJ2.setBounds(338, 89, 36, 20);
+//		frame.getContentPane().add(textField_ScoreJ2);
+//
+//		lblLabelGagnant = new JLabel("     New label");
+//		lblLabelGagnant.setForeground(Color.RED);
+//		lblLabelGagnant.setFont(new Font("Cinzel Black", Font.BOLD, 16));
+//		lblLabelGagnant.setBounds(125, 190, 171, 27);
+//		lblLabelGagnant.setVisible(false);
+//		frame.getContentPane().add(lblLabelGagnant);
+//
+//		chckbxTricheurJ1 = new JCheckBox("Tricheur");
+//		chckbxTricheurJ1.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				partie.getJ1().setTricheur(chckbxTricheurJ1.isSelected());
+//				refreshScreen();
+//			}
+//
+//		});
+//		chckbxTricheurJ1.setBounds(10, 176, 97, 23);
+//		frame.getContentPane().add(chckbxTricheurJ1);
+//
+//		chckbxTricheurJ2 = new JCheckBox("Tricheur");
+//		chckbxTricheurJ2.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				partie.getJ2().setTricheur(chckbxTricheurJ2.isSelected());
+//				refreshScreen();
+//			}
+//
+//		});
+//		chckbxTricheurJ2.setBounds(297, 176, 97, 23);
+//		frame.getContentPane().add(chckbxTricheurJ2);
+//
+//	}
+//}
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import pack1.PartieBean;
+
+public class Ihm {
+
+	private JFrame frame;
+	private JTextField textField_ScoreJ1;
+	private JTextField textField_De1;
+	private JTextField textField_De2;
+	private JTextField textField_ScoreJ2;
+	private JButton btnLancerJ1;
+	private JLabel lblLabelNbTour;
+	private JButton btnLancerJ2;
+	private JButton btnNouvellePartie;
+
+	private JTextField txtJoueur_1;
+	private JTextField txtJoueur_2;
+	JCheckBox chckbxTricheurJ1, chckbxTricheurJ2;
+
+	private PartieBean partie;
+
+	public static void main(final String[] args) {
+
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Ihm window = new Ihm();
+					window.setVisible(true);
+				} catch (final Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Ihm() {
+		partie = new PartieBean("Toto", "Tata");
+		initialize();
+		refreshScreen();
+	}
+
+	private void refreshScreen() {
+		// Joueur1
+		txtJoueur_1.setText(partie.getJ1().getPrenom());
+		textField_ScoreJ1.setText("" + partie.getJ1().getScorePartie());
+		chckbxTricheurJ1.setSelected(partie.getJ1().isTricheur());
+
+		// Joueur 2
+		txtJoueur_2.setText(partie.getJ2().getPrenom());
+		textField_ScoreJ2.setText("" + partie.getJ2().getScorePartie());
+		chckbxTricheurJ2.setSelected(partie.getJ2().isTricheur());
+
+		// Le nombre de tour
+		lblLabelNbTour.setText(partie.getTourEnCours() + "");
+
+		// Si la partie est terminée
+		if (partie.isTermine()) {
+			btnLancerJ1.setVisible(false);
+			btnLancerJ2.setVisible(false);
+			btnNouvellePartie.setVisible(true);
+		} else {
+
+			btnNouvellePartie.setVisible(false);
+			// La visibilité des boutons en fonction du joueur actif
+			if (partie.getJoueurActif() == partie.getJ1()) {
+				btnLancerJ1.setVisible(true);
+				btnLancerJ2.setVisible(false);
+				// Afficher les dés de J2
+				textField_De1.setText(partie.getJ2().getGobelet().getD1().getValue() + "");
+				textField_De2.setText(partie.getJ2().getGobelet().getD2().getValue() + "");
+
+			} else {
+				btnLancerJ1.setVisible(false);
+				btnLancerJ2.setVisible(true);
+
+				// Afficher les dés de J1
+				textField_De1.setText(partie.getJ1().getGobelet().getD1().getValue() + "");
+				textField_De2.setText(partie.getJ1().getGobelet().getD2().getValue() + "");
+			}
+		}
+	}
+
+	/*******************
+	 * Methode public
+	 */
+
+	public void setVisible(boolean visible) {
+		frame.setVisible(visible);
+	}
+
+	/*******************
+	 * Methode private
+	 */
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 682, 403);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+
+		txtJoueur_1 = new JTextField("Joueur 1");
+		txtJoueur_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtJoueur_1.setBounds(39, 45, 82, 18);
+		frame.getContentPane().add(txtJoueur_1);
+
+		txtJoueur_2 = new JTextField("Joueur 2");
+		txtJoueur_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtJoueur_2.setBounds(500, 45, 108, 18);
+		frame.getContentPane().add(txtJoueur_2);
+
+		final JLabel lblDe1 = new JLabel("DE 1");
+		lblDe1.setBounds(235, 123, 46, 14);
+		frame.getContentPane().add(lblDe1);
+
+		final JLabel lblDe2 = new JLabel("DE 2");
+		lblDe2.setBounds(315, 123, 46, 14);
+		frame.getContentPane().add(lblDe2);
+
+		final JLabel lblScoreJ1 = new JLabel("Score");
+		lblScoreJ1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblScoreJ1.setBounds(33, 93, 57, 23);
+		frame.getContentPane().add(lblScoreJ1);
+
+		textField_ScoreJ1 = new JTextField();
+		textField_ScoreJ1.setEditable(false);
+		textField_ScoreJ1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ScoreJ1.setBackground(Color.WHITE);
+		textField_ScoreJ1.setText("0");
+		textField_ScoreJ1.setBounds(86, 96, 35, 20);
+		frame.getContentPane().add(textField_ScoreJ1);
+		textField_ScoreJ1.setColumns(10);
+
+		textField_De1 = new JTextField();
+		textField_De1.setEditable(false);
+		textField_De1.setText("1");
+		textField_De1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_De1.setColumns(10);
+		textField_De1.setBackground(Color.WHITE);
+		textField_De1.setBounds(211, 148, 70, 64);
+		frame.getContentPane().add(textField_De1);
+
+		textField_De2 = new JTextField();
+		textField_De2.setEditable(false);
+		textField_De2.setText("1");
+		textField_De2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_De2.setColumns(10);
+		textField_De2.setBackground(Color.WHITE);
+		textField_De2.setBounds(304, 148, 70, 64);
+		frame.getContentPane().add(textField_De2);
+
+		final JLabel labelScoreJ2 = new JLabel("Score : ");
+		labelScoreJ2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		labelScoreJ2.setBounds(479, 93, 57, 23);
+		frame.getContentPane().add(labelScoreJ2);
+
+		textField_ScoreJ2 = new JTextField();
+		textField_ScoreJ2.setEditable(false);
+		textField_ScoreJ2.setText("0");
+		textField_ScoreJ2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_ScoreJ2.setColumns(10);
+		textField_ScoreJ2.setBackground(Color.WHITE);
+		textField_ScoreJ2.setBounds(532, 96, 35, 20);
+		frame.getContentPane().add(textField_ScoreJ2);
+
+		final JLabel lblTour = new JLabel("Tour : ");
+		lblTour.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblTour.setBounds(247, 36, 67, 27);
+		frame.getContentPane().add(lblTour);
+
+		lblLabelNbTour = new JLabel("0");
+		lblLabelNbTour.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblLabelNbTour.setBounds(324, 36, 37, 27);
+		frame.getContentPane().add(lblLabelNbTour);
+
+		btnLancerJ1 = new JButton("Lancer");
+
+		btnLancerJ1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				partie.getJ1().lancer();
+
+				if (partie.getJ1().getGobelet().getScore() >= PartieBean.SCORE_A_ATTENDRE) {
+					partie.getJ1().ajouterPt();
+				}
+
+				partie.setJoueurActif(partie.getJ2());
+
+				refreshScreen();
+			}
+		});
+
+		btnLancerJ1.setBounds(33, 169, 89, 23);
+		frame.getContentPane().add(btnLancerJ1);
+
+		btnLancerJ2 = new JButton("Lancer");
+		btnLancerJ2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				partie.getJ2().lancer();
+				if (partie.getJ2().getGobelet().getScore() >= PartieBean.SCORE_A_ATTENDRE) {
+					partie.getJ2().ajouterPt();
+				}
+
+				partie.ajouterTour();
+
+				partie.getJoueurActif();
+
+				refreshScreen();
+
+			}
+		});
+		btnLancerJ2.setBounds(479, 169, 89, 23);
+		frame.getContentPane().add(btnLancerJ2);
+
+		btnNouvellePartie = new JButton("Restart");
+		btnNouvellePartie.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				partie = new PartieBean("Toto", "Tata");
+				refreshScreen();
+			}
+		});
+		btnNouvellePartie.setBounds(247, 293, 89, 23);
+		frame.getContentPane().add(btnNouvellePartie);
+
+		chckbxTricheurJ1 = new JCheckBox("Tricheur");
+		chckbxTricheurJ1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				partie.getJ1().setTricheur(chckbxTricheurJ1.isSelected());
+				refreshScreen();
+
+			}
+		});
+		chckbxTricheurJ1.setBounds(24, 119, 97, 23);
+		frame.getContentPane().add(chckbxTricheurJ1);
+
+		chckbxTricheurJ2 = new JCheckBox("Tricheur");
+		chckbxTricheurJ2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				partie.getJ2().setTricheur(chckbxTricheurJ2.isSelected());
+				refreshScreen();
+			}
+		});
+		chckbxTricheurJ2.setBounds(470, 119, 97, 23);
+		frame.getContentPane().add(chckbxTricheurJ2);
+
+	}
+}

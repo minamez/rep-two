@@ -1,0 +1,91 @@
+package pack1;
+
+public class Depart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * System.out.println("helloworld"); // double resultat = *
+		 * photocopie(10); System.out.println(futur(10, 75)); //
+		 * System.out.println("Resultat = " + resultat);
+		 */
+
+		// exo1();
+		exo2(4); // on appele la methode exo2 avec le parametre 4
+		sub(4, 9); // appele la methode sub
+		System.out.println("Le resultat est: " + multiplyAndAdd(4, 5, 6));
+	}
+
+	/*
+	 * static String futur(int h, int m) { m = m + 1; if (m > 59) { h += m / 60;
+	 * m = m % 60; }
+	 *
+	 * if (h > 23) { h = h % 24; }
+	 *
+	 * return (h + ":" + m); }
+	 */
+
+	// exercice diapo 31
+
+	static void exo1() {
+		int i = 7;
+		int j = 3;
+		int divEntiere = i / j;
+		int reste = i % j;
+		double divClassique = (double) i / j; // transformer une des variable en
+												// double
+		// pour avoir la division classique
+		double somme = divEntiere + reste + divClassique;
+
+		System.out.println("Division Entiere = " + divEntiere);
+		System.out.println("Reste = " + reste);
+		System.out.println("Division Classique = " + divClassique);
+		System.out.println("La somme des 3 = " + somme);
+
+		System.out.println("La somme : " + (i + j)); // mettre parentheses pour
+														// qu'il fasse
+														// l'addition d'abord
+
+	}
+
+	// exercice diapo 35
+	static void exo2(int monParam) { // on cree la methode exo2 avec un entier
+										// comme parametre
+
+		monParam = monParam + 5; // on ajoute 5 au parametre
+		System.out.println("Parametre : " + monParam); // on affiche les
+														// differents parametres
+														// qu'on appele dans
+														// main
+
+	}
+
+	// exercice diapo 37
+	static void sub(int a, int b) {
+		int soustrac = a - b;
+		System.out.println("La soustraction : " + soustrac);
+		System.out.println("La soustraction : " + (a - b));// autre facon
+	}
+
+	// exo diapo 39
+
+	static int multiplyAndAdd(int a, int b, int c) {
+		return a*(b + c);
+	}
+}
+/*
+ * exercice photocopie (cf. cahier) static double photocopie(int nbPhoto) { if
+ * (nbPhoto <= 10) { return nbPhoto * 0.1; }
+ *
+ * else if (nbPhoto <= 30) {
+ *
+ * return 1 + (nbPhoto - 10) * 0.09;
+ *
+ * }
+ *
+ * else { return 2.8 + (nbPhoto - 30) * 0.08;
+ *
+ * } }
+ *
+ * }
+ */

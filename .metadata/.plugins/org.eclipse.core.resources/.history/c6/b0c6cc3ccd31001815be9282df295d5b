@@ -1,0 +1,27 @@
+package main;
+
+import java.util.ArrayList;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import com.google.gson.Gson;
+@Path("/MonService")
+public class TchatService{
+	// Retourner du Json
+		@Path("/messageJson")
+		@GET
+		@Produces(MediaType.APPLICATION_JSON)
+		public Response getMessageBean() {
+			MessageBean message = new MessageBean("bob", "blabla");
+			Gson gson = new Gson();
+
+			return Response.status(200).entity(gson.toJson(message)).build();
+		}
+
+
+}

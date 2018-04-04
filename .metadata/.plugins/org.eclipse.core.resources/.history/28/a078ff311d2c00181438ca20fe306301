@@ -1,0 +1,78 @@
+package pack1;
+
+public class Depart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * System.out.println("helloworld"); // double resultat =
+		 * photocopie(10); System.out.println(futur(10, 75)); //
+		 * System.out.println("Resultat = " + resultat);
+		 */
+
+		// exo1();
+		exo2(4); // on appele la methode exo2 avec le parametre 4
+		exo2(80);
+		exo2(15);
+	}
+
+	/*
+	 * static String futur(int h, int m) { m = m + 1; if (m > 59) { h += m / 60;
+	 * m = m % 60; }
+	 *
+	 * if (h > 23) { h = h % 24; }
+	 *
+	 * return (h + ":" + m); }
+	 */
+
+	static void exo1() {
+		int i = 7;
+		int j = 3;
+		int divEntiere = i / j;
+		int reste = 0;
+		double divClassique = 0;
+		double somme = 0;
+
+		reste = i % j;
+		divClassique = (double) i / j; // transformer une des variable en double
+										// pour avoir la division classique
+		somme = divEntiere + reste + divClassique;
+
+		System.out.println("Division Entiere = " + divEntiere);
+		System.out.println("Reste = " + reste);
+		System.out.println("Division Classique = " + divClassique);
+		System.out.println("La somme des 3 = " + somme);
+
+		System.out.println("La somme : " + (i + j)); // mettre parentheses pour
+														// qu'il fasse
+														// l'addition d'abord
+
+	}
+
+	static void exo2(int monParam) { // on cree la methode exo2 avec un entier
+										// comme parametre
+
+		monParam = monParam + 5; // on ajoute 5 au parametre
+		System.out.println("Parametre :" + monParam); // on affiche les
+														// differents parametres
+														// qu'on appele dans
+														// main
+
+	}
+}
+/*
+ * static double photocopie(int nbPhoto) { if (nbPhoto <= 10) { return nbPhoto *
+ * 0.1; }
+ *
+ * else if (nbPhoto <= 30) {
+ *
+ * return 1 + (nbPhoto - 10) * 0.09;
+ *
+ * }
+ *
+ * else { return 2.8 + (nbPhoto - 30) * 0.08;
+ *
+ * } }
+ *
+ * }
+ */

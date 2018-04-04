@@ -1,0 +1,50 @@
+package pack1;
+
+public class Depart {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * System.out.println("helloworld"); // double resultat = *
+		 * photocopie(10); System.out.println(futur(10, 75)); //
+		 * System.out.println("Resultat = " + resultat);
+		 */
+
+		// exo1();
+
+		int resultat = Exo.multiplyAndAdd(4, 5, 6); // j'appelle la methode
+													// multiply qui se trouve
+													// dans la classe Exo
+		System.out.println("Le resultat est : " + resultat);
+		
+		int maximum = Exo.max(5, 70, 1);
+		System.out.println("Le plus grand est : " + maximum);
+	}
+
+	/*
+	 * static String futur(int h, int m) { m = m + 1; if (m > 59) { h += m / 60;
+	 * m = m % 60; }
+	 *
+	 * if (h > 23) { h = h % 24; }
+	 *
+	 * return (h + ":" + m); }
+	 */
+
+}
+
+/*
+ * exercice photocopie (cf. cahier) static double photocopie(int nbPhoto) { if
+ * (nbPhoto <= 10) { return nbPhoto * 0.1; }
+ *
+ * else if (nbPhoto <= 30) {
+ *
+ * return 1 + (nbPhoto - 10) * 0.09;
+ *
+ * }
+ *
+ * else { return 2.8 + (nbPhoto - 30) * 0.08;
+ *
+ * } }
+ *
+ * }
+ */

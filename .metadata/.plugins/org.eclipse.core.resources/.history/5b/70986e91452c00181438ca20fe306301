@@ -1,0 +1,47 @@
+package pack1;
+
+public class ExoFor {
+
+	public static int testFor(String maChaine) {
+
+		// Trouver le nbr de "a" dans le mot
+		int compteur = 0;
+		// maChaine.length() -> la taille de la liste
+
+		for (int i = 0; i < maChaine.length(); i++) {
+			// Récupération du caractère à lire
+			char c = maChaine.charAt(i);
+			// Action
+			if (c == 'a') {
+				compteur++;
+
+			}
+
+		}
+		System.out.println("Le nombre de a est : " + compteur);
+		return compteur;
+
+	}
+
+	// lettre la plus grande
+	public static char grandFor(String maChaine) {
+
+		// Trouver le nbr de "a" dans le mot
+		char resultat = 'a';
+		// maChaine.length() -> la taille de la liste
+
+		for (int i = 0; i < maChaine.length(); i++) {
+			// Récupération du caractère à lire
+			char c = maChaine.charAt(i);
+			// Action
+			if (c > resultat) {
+				resultat = c;
+
+			}
+
+		}
+		System.out.println("La lettre la plus grande est : " + resultat);
+		return resultat;
+
+	}
+}

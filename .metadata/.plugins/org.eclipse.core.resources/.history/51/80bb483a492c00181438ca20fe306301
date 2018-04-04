@@ -1,0 +1,99 @@
+package pack1;
+
+public class ExoFor {
+
+	public static int testFor(String maChaine) {
+
+		// Trouver le nbr de "a" dans le mot
+		int compteur = 0;
+		// maChaine.length() -> la taille de la liste
+
+		for (int i = 0; i < maChaine.length(); i++) {
+			// Récupération du caractère à lire
+			char c = maChaine.charAt(i);
+			// Action
+			if (c == 'a') {
+				compteur++;
+
+			}
+
+		}
+		System.out.println("Le nombre de a est : " + compteur);
+		return compteur;
+
+	}
+
+	// lettre la plus grande/petite
+	public static char grandFor(String maChaine) {
+
+		// on initialise à "a" pour trouver lettre la plus grande et à "z" pour
+		// la plus petite
+		char resultat = 'z';
+		// maChaine.length() -> la taille de la liste
+
+		for (int i = 0; i < maChaine.length(); i++) {
+			// Récupération du caractère à lire
+			char c = maChaine.charAt(i);
+			// Action
+			if (c < resultat) {// on cherche la lettre la plus grande/petite
+								// dans la chaine de caractere c
+				resultat = c; // on donne cette valeur à resultat
+
+			}
+
+		}
+		System.out.println("La lettre la plus petite est : " + resultat);
+		return resultat;
+
+	}
+
+	// combien de fois la lettre la plus grande apparait
+	public static char nbgrFor(String maChaine) {
+		int compteur = 0;
+
+		// on initialise à "a" pour trouver lettre la plus grande et à "z" pour
+		// la plus petite
+		char resultat = 'a';
+		// maChaine.length() -> la taille de la liste
+
+		for (int i = 0; i < maChaine.length(); i++) {
+			// Récupération du caractère à lire
+			char c = maChaine.charAt(i);
+			// Action
+			if (c > resultat) {// on cherche la lettre la plus grande/petite
+								// dans la chaine de caractere c
+				resultat = c; // on donne cette valeur à resultat
+				compteur++;
+
+			}
+
+		}
+
+		System.out.println("La lettre la plus grande apparait : " + compteur + " fois");
+		return resultat;
+
+	}
+
+	// comment reverse l'ordre des lettres d'une chaine de caracteres
+		public static char reverFor(String maChaine) {
+
+
+			// on initialise à "a" pour trouver lettre la plus grande et à "z" pour
+			// la plus petite
+			char resultat = "";
+			// maChaine.length() -> la taille de la liste
+
+			for (int i = 0; i < maChaine.length(); i++) {
+				// Récupération du caractère à lire
+				char c = maChaine.charAt(i);
+				// Action
+				char resultat = maChaine.charAt(maChaine.length() - i);
+
+				}
+
+			}
+
+			System.out.println("L'inverse de la chaine est : " + resultat );
+			return resultat;
+
+		}
